@@ -15,11 +15,11 @@ const Checkout = () => {
       </div>
       <div className="mt-8">
         {cartItem?.map((item) => (
-          <div key={item.id} className="flex justify-between w-full">
-            <div
-              key={item.id}
-              className="flex flex-col md:flex-row border-b border-gray-400 py-4"
-            >
+          <div
+            key={item.id}
+            className="flex justify-between w-full border-b border-gray-400"
+          >
+            <div key={item.id} className="flex flex-col md:flex-row  py-4">
               <div className="flex-shrink-0">
                 <img
                   src={item.thumbnail}
@@ -37,16 +37,12 @@ const Checkout = () => {
             </div>
 
             <div>
-              <button className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
-                Delete
+              <button className="bg-red-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+                Remove
               </button>
             </div>
           </div>
         ))}
-      </div>
-      <div className="flex justify-end items-center mt-8">
-        <span className="text-gray-600 mr-4">Subtotal:</span>
-        <span className="text-xl font-bold">$35.00</span>
       </div>
     </div>
   );
