@@ -14,7 +14,7 @@ const Card = ({
         <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
           <img
             onClick={handleProductDetail}
-            className="object-cover"
+            className="object-cover cursor-pointer"
             src={thumbnail}
             alt="product image"
           />

@@ -1,15 +1,19 @@
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { removeCart } from "../../store/slices/cart";
 
 const Checkout = () => {
   const cartItem = useSelector((state) => state.cart.items);
+  const dispatch = useDispatch();
 
-  console.log(cartItem);
+  const handleRemoveItem = (id) => {
+    dispatch(removeCart(id));
+  };
 
   return (
     <div className="container mx-auto px-4 py-8">
       <div className="flex flex-col md:flex-row md:justify-between md:items-center">
         <h1 className="text-2xl font-bold my-4">Shopping Cart</h1>
-        <button className="bg-indigo-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+        <button className="bg-red-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
           Checkout
         </button>
       </div>
@@ -37,7 +41,10 @@ const Checkout = () => {
             </div>
 
             <div>
-              <button className="bg-red-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded">
+              <button
+                onClick={() => handleRemoveItem(item?.id)}
+                className="bg-red-500 hover:bg-indigo-700 text-white font-bold py-2 px-4 rounded"
+              >
                 Remove
               </button>
             </div>
