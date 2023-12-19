@@ -5,6 +5,7 @@ import Navbar from "./components/Shared/Navbar";
 import { Provider } from "react-redux";
 import store from "./store";
 import { Route, Routes } from "react-router-dom";
+import Checkout from "./components/Checkout";
 
 function App() {
   return (
@@ -13,7 +14,9 @@ function App() {
         <Navbar />
         <Routes>
           <Route element={<ProductList />} path="/" />
-          <Route element={<ProductDetail />} path="/product-details" />
+          <Route element={<Checkout />} path="/checkout" />
+
+          <Route element={<ProductDetail />} path="/product-details/:id" />
         </Routes>
       </Provider>
 

@@ -1,20 +1,24 @@
 import React from "react";
 
-const Card = ({ title, desc, price, thumbnail, handleProductDetail }) => {
+const Card = ({
+  title,
+  desc,
+  price,
+  handleAddToCart,
+  thumbnail,
+  handleProductDetail,
+}) => {
   return (
     <>
       <div className="relative  flex w-full max-w-xs flex-col overflow-hidden rounded-lg border border-gray-100 bg-white shadow-md">
-        <a
-          className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl"
-          href="#"
-        >
+        <div className="relative mx-3 mt-3 flex h-60 overflow-hidden rounded-xl">
           <img
             onClick={handleProductDetail}
             className="object-cover"
             src={thumbnail}
             alt="product image"
           />
-        </a>
+        </div>
         <div className="mt-4 px-5 pb-5">
           <div>
             <h5 className="text-xl tracking-tight text-slate-900">{title}</h5>
@@ -26,9 +30,9 @@ const Card = ({ title, desc, price, thumbnail, handleProductDetail }) => {
               </span>
             </p>
           </div>
-          <a
-            href="#"
-            className="flex items-center justify-center rounded-md bg-slate-900 px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
+          <button
+            onClick={handleAddToCart}
+            className="flex items-center w-full justify-center rounded-md bg-red-500  px-5 py-2.5 text-center text-sm font-medium text-white hover:bg-red-700 focus:outline-none focus:ring-4 focus:ring-blue-300"
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
@@ -45,7 +49,7 @@ const Card = ({ title, desc, price, thumbnail, handleProductDetail }) => {
               />
             </svg>
             Add to cart
-          </a>
+          </button>
         </div>
       </div>
     </>
