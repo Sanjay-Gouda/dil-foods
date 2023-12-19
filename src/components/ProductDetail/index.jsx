@@ -1,19 +1,25 @@
-import React, { useEffect, useState } from "react";
-import { useSelector } from "react-redux";
+import { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
 import { useParams } from "react-router-dom";
+import { handleCart } from "../../store/slices/cart";
 
 const ProductDetail = () => {
   const params = useParams();
   const productList = useSelector((state) => state.products.productDetails);
-
   const id = params.id;
-
   const [productDetail, setProductDetail] = useState([]);
+  const dispatch = useDispatch();
 
   useEffect(() => {
     const details = productList.find((dt) => dt.id == id);
     setProductDetail(details);
   }, [id]);
+
+  const handleAddToCart = (id) => {
+    const cartItem = productList?.find((item) => item.id == id);
+
+    dispatch(handleCart(cartItem));
+  };
 
   return (
     <>
@@ -42,7 +48,10 @@ const ProductDetail = () => {
                 <span className="title-font font-medium text-2xl text-gray-900">
                   ${productDetail?.price}
                 </span>
-                <button className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded">
+                <button
+                  onClick={() => handleAddToCart(id)}
+                  className="flex ml-auto text-white bg-red-500 border-0 py-2 px-6 focus:outline-none hover:bg-red-600 rounded"
+                >
                   Add to Cart
                 </button>
               </div>

@@ -1,4 +1,4 @@
-import React from "react";
+/* eslint-disable react/no-unknown-property */
 import { useSelector } from "react-redux";
 import { useLocation, useNavigate } from "react-router-dom";
 
@@ -15,19 +15,16 @@ const Navbar = () => {
   return (
     <nav className="bg-white border-gray-200 ">
       <div className="max-w-screen-xl flex flex-wrap items-center justify-between  p-4">
-        <a
-          href="https://flowbite.com/"
-          className="flex items-center space-x-3 rtl:space-x-reverse"
+        <p
+          onClick={() => navigate("/")}
+          className="flex items-center cursor-pointer space-x-3 rtl:space-x-reverse"
         >
           <img
             src="https://dilfoods.in/wp-content/uploads/2023/04/Dil-Foods-new-logo.png"
             className="h-14"
             alt="Flowbite Logo"
           />
-          <span className="self-center text-2xl font-semibold whitespace-nowrap ">
-            Dill Foods
-          </span>
-        </a>
+        </p>
         <button
           data-collapse-toggle="navbar-default"
           type="button"

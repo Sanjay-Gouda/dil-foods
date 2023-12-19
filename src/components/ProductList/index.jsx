@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import Card from "../Shared/Card";
 import { useDispatch } from "react-redux";
 import { setProductsList } from "../../store/slices/productList";
@@ -38,7 +38,7 @@ const ProductList = () => {
 
   return (
     <div className="flex w-full flex-wrap gap-4 ">
-      {list?.slice(0, 8)?.map((li: any) => (
+      {list?.slice(0, 8)?.map((li) => (
         <Card
           key={li?.id}
           title={li?.title}
